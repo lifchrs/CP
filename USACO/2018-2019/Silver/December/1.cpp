@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 int N,M,C;
 int t[100000];
- 
+
 bool pos(int wait)
 {
 	int wagons = 1;
@@ -20,7 +20,7 @@ bool pos(int wait)
 	}
 	return (wagons <= M);
 }
- 
+
 int binSearch(int low,int high)
 {
 	if(low == high) return low;
@@ -33,7 +33,7 @@ int binSearch(int low,int high)
 	if(pos(mid)) return binSearch(low,mid);
 	else return binSearch(mid+1,high);
 }
- 
+
 int main()
 {
     ifstream cin("convention.in");

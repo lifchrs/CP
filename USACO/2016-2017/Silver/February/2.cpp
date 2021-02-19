@@ -2,11 +2,11 @@
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-typedef double db; 
-typedef string str; 
-typedef pair<ll,ll> pl; 
-typedef vector<ll> vl; 
-typedef vector<vl> vvl; 
+typedef double db;
+typedef string str;
+typedef pair<ll,ll> pl;
+typedef vector<ll> vl;
+typedef vector<vl> vvl;
 #define mp make_pair
 #define se second
 #define pb push_back
@@ -36,7 +36,7 @@ int main(){
 	ifstream cin("maxcross.in");
 	ofstream cout("maxcross.out");
     ll n,k,b;
-    cin>>n>>k>>b; 
+    cin>>n>>k>>b;
     vector<pair<ll,bool>> nums;
     F0R(i,n){
         nums.pb({i+1,1});
@@ -65,4 +65,3 @@ int main(){
     }
     cout<<ans nn;
 }
-

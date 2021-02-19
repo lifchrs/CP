@@ -39,33 +39,38 @@ using vpd = vector<pd>;
 
 #define nn << "\n"
 
+ll dist[int(1e5)+3];
+
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  ll t;
-  cin >> t;
-  while(t--){
-    string s;
-    cin >> s;
-    ll ans = 0;
-    FOR(i,1,sz(s)){
-      if(s[i-1] == s[i] || (i > 1 && s[i] == s[i-2])){
-        ans++;
-        for(char x = 'a'; x <= 'z'; x = x+1){
-          bool cont = 0;
-          for(ll j = max(0*i,i-2); j < min(i+10,sz(s)); j++){
-            if(s[j] == x){
-              cont = 1;
-              break;
-            }
-          }
-          if(cont) continue;
-          s[i] = x;
-          break;
-        }
+  ll n,m,k;
+  cin >> n >> m >> k;
+  vpl adjList[n+2];
+  F0R(i,m){
+    ll a,b,c;
+    cin >> a >> b >> c;
+    a--,b--;
+    adjList[a].pb(mp(b,c));
+    adjList[b].pb(mp(a,c));
+  }
+  priority_queue<pair<pl,ll>> pq;
+  vl special(k);
+  F0R(i,k){
+    cin >> special[i];
+    dist[special[i]] = 0;
+    pq.push({{0,special[i]},special[i]});
+  }
+  while(!pq.empty()){
+    pair<pl,ll> curr = pq.top();
+    pq.pop();
+    if(curr.f.f != -dist[curr.f.s]) continue;
+    for(pl next : adjList[curr.f.s]){
+      if(next.f == curr.s) continue;
+      if(dist[next.f.f] > dist[curr.f.s] + next.f.s){
+        dist[next.f] = dist[curr.f.s] + next.s;
+        pq.push({{-dist[next.f],next.f},curr.s});
       }
     }
-    cout << ans nn;
-    /* cout << s nn; */
   }
 }

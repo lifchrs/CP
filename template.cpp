@@ -20,7 +20,7 @@ using vpd = vector<pd>;
 #define f first
 #define s second
 
-#define sz(x) int((x).size())
+#define sz(x) (ll)((x).size())
 #define bg(x) begin(x)
 #define all(x) bg(x), end(x)
 #define rall(x) x.rbegin(), x.rend()

@@ -39,10 +39,28 @@ using vpd = vector<pd>;
 
 #define nn << "\n"
 
-ll dp[101];
-bool done[1001*101];
+const ll mxN = int(1e6) + 5;
+const ll MOD = 13371337;
+
+ll dp[mxN];
+
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
+  ll n,k;
+  cin >> n >> k;
+  vl coins;
+  ll sum
+  F0R(i,n){
 
+  }
+  dp[0] = 1;
+  for(ll c : coins){
+    F0R(i,v+1){
+      if(i-c < 0) continue;
+      dp[i] += dp[i-c];
+      /* while(dp[i] >= MOD) dp[i] -= MOD; */
+    }
+  }
+  cout << dp[v] nn;
 }
